@@ -1,110 +1,67 @@
-
+/* Общий стиль для всего документа */
 body {
-    font-family: 'Times New Roman', Times, serif;
-    background-color: #f8f9fa;
+    font-family: fantasy;
+    background-color: #f5f7fa;
     margin: 0;
-    padding: 0;
-    color: #333;
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
+    color: #2786a0;
+    overflow-x: hidden; /* Запрещаем горизонтальный скролл для всей страницы */
+  }
+  
+  h1 {
     text-align: left;
-    color: #2c3e50;
-    margin-bottom: 20px;
+    font-family: fantasy;
+    color: #475c5c;;
+    margin-bottom: 10px;
 }
-
-
-.new-task-section {
-    margin-bottom: 30px;
-    padding: 20px;
-    background-color: #e9ecef;
+  .board-app {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Стили для заголовка */
+  .board-app__header {
+    background-color: #02f8f0;
+    padding: 15px 20px;
     border-radius: 8px;
-}
-
-#new-task {
-    width: calc(30% - 120px);
-    padding: 10px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-#add-task {
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-#add-task:hover {
-    background-color: #218838;
-}
-
-
-.horizontal-sections {
+    margin-bottom: 20px;
+  }
+  
+  /* Стили для доски задач */
+  .taskboard__inner {
     display: flex;
     gap: 20px;
-    flex-wrap: wrap;
-}
-
-.task-section {
-    flex: 1;
-    min-width: 200px;
-    padding: 15px;
-    background-color: #f1f3f5;
+    padding-bottom: 15px;
+    flex-wrap: wrap; /* Перенос блоков на новую строку при нехватке места */
+  }
+  
+  /* Стили для списка задач */
+  .task-list {
+    flex: 1; /* Гибкое заполнение пространства */
+    min-width: 250px; /* Минимальная ширина блока */
+    max-width: calc(25% - 20px); /* Максимум 4 блока в строке */
+    background: #ebebee;
     border-radius: 8px;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
-}
-
-.task-section h2 {
-    margin-top: 0;
-    color: #121416;
-    font-size: 18px;
-}
-
-.task-section ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-
-.task-section li {
-    background-color: #fff;
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #dee2e6;
-    border-radius: 4px;
-    font-size: 14px;
-    color: #212529;
-}
-
-
-#clear-trash {
-    width: 100%;
-    padding: 10px;
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-    margin-top: 10px;
-}
-
-#clear-trash:hover {
-    background-color: #c82333;
-}
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Учитываем padding в ширине */
+  }
+  
+  /* Адаптивные стили */
+  @media (max-width: 1200px) {
+    .task-list {
+      max-width: calc(33.333% - 20px); /* 3 блока в строке */
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .task-list {
+      max-width: calc(50% - 20px); /* 2 блока в строке */
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .task-list {
+      max-width: 100%; /* 1 блок в строке */
+    }
+  }
